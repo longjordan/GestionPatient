@@ -1,0 +1,56 @@
+html{
+	background: no-repeat url("icone.jpg");
+}
+
+body{
+	padding-top:200px;
+}
+
+#connexion, #inscription, #formulaire{
+	background-color: rgb(204, 238, 255);
+	border-style: solid;
+	margin-left: 500px;
+	margin-right: 500px;
+}
+
+
+label{
+	display: block;
+	width: 150px;
+	float: left;
+}
+
+.col-25{
+	margin: 20px;
+}
+
+h1{
+	text-align: center;
+}
+
+.form{
+	text-align: center;
+}
+
+.formAjout{
+	width: 70%;
+    margin: auto;
+}
+
+.identifiant{
+	padding-top: 50px;
+}
+
+.mdp{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+.envoye{
+	margin: 20px;
+}
+
+.valider{
+	padding-top: 10px;
+	padding-bottom: 5px;
+}
