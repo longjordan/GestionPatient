@@ -9,18 +9,10 @@
     	<div id="formulaire">
 	        <h1>Ajout des patients</h1>
 	        <div class="formAjout">
-	            <form method="post" action="">
-	                <div class="ligne">
-                    <div class="col-25">
-                        <label for="prenom">ID du patient</label>
-                    </div>
-                    <div class="col-75">
-                        <input type="text" id="id" name="id" placeholder="id du patient...">
-                    </div>
-                </div>
+	            <form method="post" action="ajoutPatient.php">
                 <div class="ligne">
                     <div class="col-25">
-                        <label for="nom">Nom du patient</label>
+                        <label for="nom">Nom</label>
                     </div>
                     <div class="col-75">
                         <input type="text" id="nom" name="nom" placeholder="nom..." >
@@ -28,10 +20,18 @@
                 </div>
                 <div class="ligne">
                     <div class="col-25">
-                        <label for="age">Age</label>
+                        <label for="prenom">Prénom</label>
                     </div>
                     <div class="col-75">
-                        <input type="number" id="age" name="age" min="0">
+                        <input type="text" id="prenom" name="prenom" placeholder="prénom..." >
+                    </div>
+                </div>
+                <div class="ligne">
+                    <div class="col-25">
+                        <label for="dateNaissance">Date de naissance</label>
+                    </div>
+                    <div class="col-75">
+                        <input type="date" id="dateNaissance" name="dateNaissance">
                     </div>
                 </div>
                 <div class="ligne">
@@ -53,14 +53,14 @@
                 </div>
                 <div class="ligne">
                     <div class="col-25">
-                        <label for="adr">Adresse</label>
+                        <label for="adr">Ville</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="adr" name="adr" placeholder="adresse...">
+                        <input type="text" id="adr" name="adr" placeholder="ville...">
                     </div>
                 </div>
                 <div class="ligne">
-                    <input class="envoye" type="submit" value="Envoyer">
+                    <input class="envoye" name="submit" type="submit" value="Envoyer">
                 </div>
 	            </form>
 	        </div>
