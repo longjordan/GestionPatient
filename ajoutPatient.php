@@ -6,7 +6,6 @@
             $nom = $_POST['nom'];
             $prenom = $_POST['prenom'];
             $dateNaissance = $_POST['dateNaissance'];
-            $nom = $_POST['nom'];
             $genre = $_POST['genre'];
             $tel = $_POST['tel'];
             $adr = $_POST['adr'];
