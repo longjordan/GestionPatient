@@ -2,6 +2,11 @@
     session_start ();
     include 'API.php';
 
+    if(!isset($_SESSION['droit'])){
+        header('LOCATION:index.php');
+    }
+
+
     if(isset($_POST)){
         if(isset($_POST["submit"])){
             $id = $_SESSION['patient'] -> id;
@@ -13,6 +18,8 @@
             $adr = $_POST['adr'];
 
             putPatient($id, $nom, $prenom, $dateNaissance, $genre, $tel, $adr);
+
+            header("Location:recherchepatient.php");
         }
     }
 
@@ -25,6 +32,7 @@
         <link rel="stylesheet" media="screen" type="text/css" title="index" href="mep.css" />
     </head>
     <body>
+        <?php include("menu.php"); ?>
     	<div id="formulaire">
 	        <h1>Modification du patient</h1>
 	        <div class="formAjout">
@@ -34,7 +42,11 @@
                         <label for="nom">Nom</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="nom" name="nom" placeholder="nom..." value="<?php if(isset ($_SESSION['patient'])) { echo($_SESSION['patient'] -> name[0] -> family);}  ?>">
+                        <input type="text" id="nom" name="nom" placeholder="nom..." value="<?php if(isset ($_SESSION['patient'] -> name[0] -> family)) { 
+                                                                                                        echo($_SESSION['patient'] -> name[0] -> family);
+                                                                                                    } else {
+                                                                                                        echo '';
+                                                                                                  }  ?>">
                     </div>
                 </div>
                 <div class="ligne">
@@ -42,7 +54,11 @@
                         <label for="prenom">Prénom</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="prenom" name="prenom" placeholder="prénom..." value="<?php if(isset ($_SESSION['patient'])) { echo($_SESSION['patient'] -> name[0] -> given[0]);}  ?>">
+                        <input type="text" id="prenom" name="prenom" placeholder="prénom..." value="<?php if(isset ($_SESSION['patient'] -> name[0] -> given[0])) { 
+                                                                                                                echo($_SESSION['patient'] -> name[0] -> given[0]);
+                                                                                                            } else {
+                                                                                                                echo '';                                       
+                                                                                                            } ?>">
                     </div>
                 </div>
                 <div class="ligne">
@@ -50,7 +66,11 @@
                         <label for="dateNaissance">Date de naissance</label>
                     </div>
                     <div class="col-75">
-                        <input type="date" id="dateNaissance" name="dateNaissance" value="<?php if(isset ($_SESSION['patient'])) { echo($_SESSION['patient']-> birthDate);}  ?>">
+                        <input type="date" id="dateNaissance" name="dateNaissance" value="<?php if(isset ($_SESSION['patient']-> birthDate)) { 
+                                                                                                    echo(date("Y-m-d", strtotime($_SESSION['patient']-> birthDate)));
+                                                                                                } else {
+                                                                                                    echo '';
+                                                                                                }  ?>">
                     </div>
                 </div>
                 <div class="ligne">
@@ -74,7 +94,11 @@
                         <label for="tel">Telephone</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="tel" name="tel" placeholder="téléphone..." value="<?php if(isset ($_SESSION['patient'])) { echo($_SESSION['patient'] -> telecom[0] -> value);}  ?>">
+                        <input type="text" id="tel" name="tel" placeholder="téléphone..." value="<?php if(isset ($_SESSION['patient'] -> telecom[0] -> value)) { 
+                                                                                                            echo($_SESSION['patient'] -> telecom[0] -> value);
+                                                                                                        } else {
+                                                                                                            echo '';
+                                                                                                        }  ?>">
                     </div>
                 </div>
                 <div class="ligne">
@@ -82,11 +106,15 @@
                         <label for="adr">Ville</label>
                     </div>
                     <div class="col-75">
-                        <input type="text" id="adr" name="adr" placeholder="ville..." value="<?php if(isset ($_SESSION['patient'])) { echo($_SESSION['patient'] -> address[0] -> city);}  ?>">
+                        <input type="text" id="adr" name="adr" placeholder="ville..." value="<?php if(isset ($_SESSION['patient'] -> address[0] -> city)) { 
+                                                                                                        echo($_SESSION['patient'] -> address[0] -> city);
+                                                                                                    } else {
+                                                                                                        echo '';
+                                                                                                    }  ?>">
                     </div>
                 </div>
                 <div class="ligne">
-                    <input class="envoye" name="submit" type="submit" value="Envoyer">
+                    <input class="btn" name="submit" type="submit" value="Envoyer">
                 </div>
 	            </form>
 	        </div>

@@ -12,17 +12,17 @@ function sendRequest($methode, $data, $id){
 			)
 		);
 	$context  = stream_context_create($options);
-	var_dump($id);
 	try {
 		$result = file_get_contents($url.'/'.$id, false, $context);
 		
-		if ($result === FALSE) { echo'erreur100';	 }
+		if ($result === FALSE) { return 1;	 }
 		$result = json_decode($result);
 		
 		$_SESSION['patient'] = $result;
 	} catch (Exception $e) {
 		var_dump($e);
 	}
+	return 0;
 }
 
 function addPatient($nom, $prenom, $dateNaissance, $genre, $tel, $adr){
@@ -53,7 +53,10 @@ function addPatient($nom, $prenom, $dateNaissance, $genre, $tel, $adr){
 }
 
 function getPatient($id){
-	sendRequest('GET','',$id);
+	$res = sendRequest('GET','',$id);
+	if($res == 1){
+		$_SESSION['erreur'] = 'ID inexistant';
+	}
 }
 
 function deletePatient($id){
@@ -88,5 +91,5 @@ function putPatient($id, $nom, $prenom, $dateNaissance, $genre, $tel, $adr){
 
 	//var_dump($id);
 
-	sendRequest('PUT','$donnees',$id);
+	sendRequest('PUT',$donnees,$id);
 }
