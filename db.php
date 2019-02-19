@@ -1,7 +1,8 @@
 <?php
+//Classe de connexion à la base de données
 class MyPDO extends PDO
 {
-    public function __construct($file = 'setting.ini')
+    public function __construct($file = 'setting.ini') //appel au fichier configuration
     {
         if (!$settings = parse_ini_file($file, TRUE)) throw new exception('Unable to open ' . $file . '.');
        

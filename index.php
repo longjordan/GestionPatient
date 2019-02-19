@@ -1,31 +1,35 @@
 <?php
 include("db.php");
 
+//Ouvre une session si inexistante
 if(session_status() === PHP_SESSION_NONE){
     session_start();
 }
 
+//Vide la variable : déconnexion
 if(isset($_SESSION)){
     unset($_SESSION['droit']);
 }
 
+//Instanciation de la classe Mypdo
 if(!isset($db)){
     $db = new Mypdo();
 } 
 
+//Connexion à l'application
 if(isset($_POST)){
     if(isset($_POST["submit"])){
         $login = $_POST['identifiant'];
         $mdp = $_POST['mdp'];
 
-        if(empty($login) || empty($mdp)){
+        if(empty($login) || empty($mdp)){ //Si login ou mdp vide
             echo 'Veuillez remplir les champs';
         }else{
             $sql = "SELECT * FROM utilisateur WHERE login = :login AND mdp = :mdp";
             $sth = $db->prepare($sql);
             $sth->execute(array(":login"=>$login, ":mdp"=>$mdp));
             $res = $sth->fetchAll();
-            if(count($res) == 1){
+            if(count($res) == 1){ //Vérification login et mdp correspondent
                 $_SESSION['droit'] = $res[0]["admin"];
                 $_SESSION['login'] = $res[0]["login"];
                 header("Location:accueil.php");

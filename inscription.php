@@ -2,10 +2,12 @@
 
 include("db.php");
 
+//Instanciation de la classe Mypdo
 if(!isset($db)){
 	$db = new Mypdo();
 } 
 
+//Inscription d'un utilisateur
 if(isset($_POST)){
 	if(isset($_POST["submit"])){
 		$login = $_POST['login'];
@@ -21,7 +23,7 @@ if(isset($_POST)){
 			header('LOCATION:accueil.php');
 		}
 		catch(PDOException $err)
-		{
+		{	
 			echo "Erreur SQL : ".$sth->errorInfo()[2];
 		}
 	}
@@ -73,5 +75,4 @@ if(isset($_POST)){
 		</div>
 	</div>
 </body>
-
 </html>

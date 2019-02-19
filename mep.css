@@ -1,11 +1,9 @@
-
-
 html{
 	background: url("background.jpg") no-repeat center center fixed; 
--webkit-background-size: cover;
--moz-background-size: cover;
--o-background-size: cover;
-background-size: cover;				
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;				
 }
 
 body{
@@ -22,8 +20,8 @@ body{
 	margin-bottom: 3%; 
 	margin-left: 30%;
 	margin-right: 30%;
-   	text-align: center;
-   	vertical-align: middle;
+	text-align: center;
+	vertical-align: middle;
 }
 
 
@@ -36,37 +34,37 @@ label{
 
 /* The navigation bar */
 .navbar {
-  overflow: hidden;
-  background-color: #333;
-  position: fixed; /* Set the navbar to fixed position */
-  top: 0; /* Position the navbar at the top of the page */
-  left: 0;
-  width: 100%; /* Full width */
+	overflow: hidden;
+	background-color: #333;
+	position: fixed; /* Set the navbar to fixed position */
+	top: 0; /* Position the navbar at the top of the page */
+	left: 0;
+	width: 100%; /* Full width */
 }
 
 /* Links inside the navbar */
 .nav {
-  float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+	float: left;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
 
 /* Change background on mouse-over */
 .nav:hover {
-  background: #ddd;
-  color: black;
+	background: #ddd;
+	color: black;
 }
 
 #nomUser {
 	float: left;
-  display: block;
-  color: #f2f2f2;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+	display: block;
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
 }
 
 .col-25{
@@ -87,13 +85,13 @@ h1{
 .btn {
 	margin-left: 130px;
 	margin-right: 130px;
-    border-radius: 10px;
-    color: #ffffff;
-    background: #3498db;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    padding: 10px 20px 10px 20px;
-    
+	border-radius: 10px;
+	color: #ffffff;
+	background: #3498db;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	padding: 10px 20px 10px 20px;
+	
 }
 
 .form,.formAjout{
