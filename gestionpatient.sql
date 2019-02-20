@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  lun. 18 fév. 2019 à 22:26
+-- Généré le :  mer. 20 fév. 2019 à 20:35
 -- Version du serveur :  5.7.17
 -- Version de PHP :  5.6.30
 
@@ -19,8 +19,10 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `GestionPatient`
+-- Base de données :  `gestionpatient`
 --
+CREATE DATABASE IF NOT EXISTS `gestionpatient` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `gestionpatient`;
 
 -- --------------------------------------------------------
 
