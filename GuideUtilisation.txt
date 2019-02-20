@@ -30,5 +30,8 @@ Spécificités :
 	- connexion avec les comptes existants (login : admin ou util mdp : admin ou util)
 	- possibilités de créer un utilisateur seulement avec un compte administrateur
 	- modification et suppression disponible après la recherche d'un patient 
-	(supression disponible que pour l'administrateur)
+	(seul l'administrateur peut supprimer un patient)
+	
+
+Contact : pierredemol@hotmail.fr
 	
