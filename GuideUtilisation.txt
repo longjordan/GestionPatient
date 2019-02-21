@@ -1,10 +1,10 @@
 			 ------------------------------------------------------
-			|											           |
-			|													   |
-			|				 GUIDE UTILISATION					   |
-			|			      GESTION PATIENT				       |
-			|											           |
-			|											           | 
+			|							|
+			|							|
+			|		    GUIDE UTILISATION			|
+			|		     GESTION PATIENT			|
+			|							|
+			|							| 
 			 ------------------------------------------------------
  
 Fonctionnalités principales :
