@@ -7,18 +7,20 @@ if(!isset($_SESSION['droit'])){
     header('LOCATION:index.php');
 }
 
-//Envoie sur modifierPatient, si bouton modifier cliqué
+//Récupération des champs du formulaire et modification des données
 if(isset($_POST)){
-    if(isset($_POST["modifier"])){
-        header('LOCATION:modifierPatient.php');
-    }
-}
+    if(isset($_POST["submit"])){
+        $id = $_SESSION['patient'] -> id;
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $dateNaissance = $_POST['dateNaissance'];
+        $genre = $_POST['genre'];
+        $tel = $_POST['tel'];
+        $adr = $_POST['adr'];
 
-//Supression du patient, si bouton supprimé cliqué
-if(isset($_POST)){
-    if(isset($_POST["supprimer"])){
-        deletePatient($patient->id);
-        header('LOCATION:accueil.php');
+        putPatient($id, $nom, $prenom, $dateNaissance, $genre, $tel, $adr);
+
+        header("Location:recherchepatient.php");
     }
 }
 
@@ -35,26 +37,15 @@ if(isset($_POST)){
 <body>
     <?php include("menu.php"); ?>
     <div id="formulaire">
-        <h1>Patient</h1>
-        <form method="post" action="">
-            <div class="ligne">
-                <div class="col-25">
-                    <label for="nom">ID</label>
-                </div>
-                <div class="col-75">
-                    <input class="input" disabled type="text" id="id" name="id" value="<?php if(isset ($_SESSION['patient'] -> id)) { 
-                        echo($_SESSION['patient'] -> id);
-                    } else {
-                        echo '';
-                    }  ?>">
-                </div>
-            </div>
+       <h1>Modification du patient</h1>
+       <div class="formAjout">
+           <form method="post" action="">
             <div class="ligne">
                 <div class="col-25">
                     <label for="nom">Nom</label>
                 </div>
                 <div class="col-75">
-                    <input class="input" disabled type="text" id="nom" name="nom" value="<?php if(isset ($_SESSION['patient'] -> name[0] -> family)) { 
+                    <input type="text" class="input" id="nom" name="nom" placeholder="nom..." value="<?php if(isset ($_SESSION['patient'] -> name[0] -> family)) { 
                         echo($_SESSION['patient'] -> name[0] -> family);
                     } else {
                         echo '';
@@ -66,7 +57,7 @@ if(isset($_POST)){
                     <label for="prenom">Prénom</label>
                 </div>
                 <div class="col-75">
-                    <input class="input" disabled type="text" id="prenom" name="prenom" value="<?php if(isset ($_SESSION['patient'] -> name[0] -> given[0])) { 
+                    <input type="text" class="input" id="prenom" name="prenom" placeholder="prénom..." value="<?php if(isset ($_SESSION['patient'] -> name[0] -> given[0])) { 
                         echo($_SESSION['patient'] -> name[0] -> given[0]);
                     } else {
                         echo '';                                       
@@ -78,7 +69,7 @@ if(isset($_POST)){
                     <label for="dateNaissance">Date de naissance</label>
                 </div>
                 <div class="col-75">
-                    <input class="input" disabled type="date" id="dateNaissance" name="dateNaissance" value="<?php if(isset ($_SESSION['patient']-> birthDate)) { 
+                    <input type="date" class="input" id="dateNaissance" name="dateNaissance" value="<?php if(isset ($_SESSION['patient']-> birthDate)) { 
                         echo(date("Y-m-d", strtotime($_SESSION['patient']-> birthDate)));
                     } else {
                         echo '';
@@ -90,12 +81,12 @@ if(isset($_POST)){
                     <label for="genre">Genre</label>
                 </div>
                 <div class="col-75">
-                    <input disabled type="radio" id="genre" name="genre" value="M" <?php
+                    <input type="radio" id="genre" name="genre" value="M" <?php
                     if(($_SESSION['patient']-> gender) == 'male') { echo 'checked="checked"' ; }
                     ?> 
                     >M
 
-                    <input disabled type="radio" id="genre" name="genre" value="F" <?php
+                    <input type="radio" id="genre" name="genre" value="F" <?php
                     if(($_SESSION['patient']-> gender) == 'female') { echo 'checked="checked"' ; }
                     ?> 
                     >F
@@ -106,7 +97,7 @@ if(isset($_POST)){
                     <label for="tel">Telephone</label>
                 </div>
                 <div class="col-75">
-                    <input class="input" disabled type="text" id="tel" name="tel" value="<?php if(isset ($_SESSION['patient'] -> telecom[0] -> value)) { 
+                    <input type="text" class="input" id="tel" name="tel" placeholder="téléphone..." value="<?php if(isset ($_SESSION['patient'] -> telecom[0] -> value)) { 
                         echo($_SESSION['patient'] -> telecom[0] -> value);
                     } else {
                         echo '';
@@ -118,24 +109,18 @@ if(isset($_POST)){
                     <label for="adr">Ville</label>
                 </div>
                 <div class="col-75">
-                    <input class="input" disabled type="text" id="adr" name="adr" value="<?php if(isset ($_SESSION['patient'] -> address[0] -> city)) { 
+                    <input type="text" class="input" id="adr" name="adr" placeholder="ville..." value="<?php if(isset ($_SESSION['patient'] -> address[0] -> city)) { 
                         echo($_SESSION['patient'] -> address[0] -> city);
                     } else {
                         echo '';
                     }  ?>">
                 </div>
             </div>
-            <div class="validerRecherche">
-                <input class="btn" type="submit" name="modifier" value="Modifier">
+            <div class="ligne">
+                <input class="btn" name="submit" type="submit" value="Envoyer">
             </div>
-            <div class="validerRecherche2">
-                <?php 
-                if($_SESSION['droit'] == 1){ ?>
-                <input class="btn" type="submit" name="supprimer" value="Supprimer"><br>
-                <?php
-            }?>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </body>
 

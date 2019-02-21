@@ -1,0 +1,37 @@
+			 ------------------------------------------------------
+			|											           |
+			|													   |
+			|				 GUIDE UTILISATION					   |
+			|			      GESTION PATIENT				       |
+			|											           |
+			|											           | 
+			 ------------------------------------------------------
+ 
+Fonctionnalités principales :
+	- recherche d'un patient
+	- ajout d'un patient
+	- modification d'un patient
+	- suppréssion d'un patient
+	
+Fonctionnalités secondaires :
+	- connexion et inscription avec un compte
+	- gestion des droits utilisateurs (admin ou non)	
+
+Installation :
+	- télécharger les sources à cette adresse : https://github.com/longjordan/GestionPatient.git sur la branche master
+	- télécharger easyPHP (devserver)
+	- dans le dossier eds-www se trouvant à la racine du dossier easyPHP, créer un dossier GestionPatient
+	- copier les sources dans ce dossier
+	- via easyPHP, lancer HTTP server et Database server
+	- ouvrir PhpMyAdmin et importer le sql présent dans les sources
+	- accéder au site via 127.0.0.1/GestionPatient 
+
+Spécificités :
+	- connexion avec les comptes existants (login : admin ou util mdp : admin ou util)
+	- possibilités de créer un utilisateur seulement avec un compte administrateur
+	- modification et suppression disponible après la recherche d'un patient 
+	(seul l'administrateur peut supprimer un patient)
+	
+
+Contact : pierredemol@hotmail.fr
+	
