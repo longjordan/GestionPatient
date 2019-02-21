@@ -39,10 +39,22 @@ if(isset($_POST)){
         <form method="post" action="">
             <div class="ligne">
                 <div class="col-25">
+                    <label for="nom">ID</label>
+                </div>
+                <div class="col-75">
+                    <input class="input" disabled type="text" id="id" name="id" value="<?php if(isset ($_SESSION['patient'] -> id)) { 
+                        echo($_SESSION['patient'] -> id);
+                    } else {
+                        echo '';
+                    }  ?>">
+                </div>
+            </div>
+            <div class="ligne">
+                <div class="col-25">
                     <label for="nom">Nom</label>
                 </div>
                 <div class="col-75">
-                    <input class="input" disabled type="text" id="nom" name="nom" placeholder="nom..." value="<?php if(isset ($_SESSION['patient'] -> name[0] -> family)) { 
+                    <input class="input" disabled type="text" id="nom" name="nom" value="<?php if(isset ($_SESSION['patient'] -> name[0] -> family)) { 
                         echo($_SESSION['patient'] -> name[0] -> family);
                     } else {
                         echo '';
@@ -54,7 +66,7 @@ if(isset($_POST)){
                     <label for="prenom">Prénom</label>
                 </div>
                 <div class="col-75">
-                    <input class="input" disabled type="text" id="prenom" name="prenom" placeholder="prénom..." value="<?php if(isset ($_SESSION['patient'] -> name[0] -> given[0])) { 
+                    <input class="input" disabled type="text" id="prenom" name="prenom" value="<?php if(isset ($_SESSION['patient'] -> name[0] -> given[0])) { 
                         echo($_SESSION['patient'] -> name[0] -> given[0]);
                     } else {
                         echo '';                                       
@@ -94,7 +106,7 @@ if(isset($_POST)){
                     <label for="tel">Telephone</label>
                 </div>
                 <div class="col-75">
-                    <input class="input" disabled type="text" id="tel" name="tel" placeholder="téléphone..." value="<?php if(isset ($_SESSION['patient'] -> telecom[0] -> value)) { 
+                    <input class="input" disabled type="text" id="tel" name="tel" value="<?php if(isset ($_SESSION['patient'] -> telecom[0] -> value)) { 
                         echo($_SESSION['patient'] -> telecom[0] -> value);
                     } else {
                         echo '';
@@ -106,7 +118,7 @@ if(isset($_POST)){
                     <label for="adr">Ville</label>
                 </div>
                 <div class="col-75">
-                    <input class="input" disabled type="text" id="adr" name="adr" placeholder="ville..." value="<?php if(isset ($_SESSION['patient'] -> address[0] -> city)) { 
+                    <input class="input" disabled type="text" id="adr" name="adr" value="<?php if(isset ($_SESSION['patient'] -> address[0] -> city)) { 
                         echo($_SESSION['patient'] -> address[0] -> city);
                     } else {
                         echo '';
